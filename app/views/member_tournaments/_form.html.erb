@@ -1,0 +1,15 @@
+<%= form_for(@member_tournament) do |f| %>
+  <% if @member_tournament.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member_tournament.errors.count, "error") %> prohibited this member_tournament from being saved:</h2>
+
+      <ul>
+      <% @member_tournament.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<% end %>

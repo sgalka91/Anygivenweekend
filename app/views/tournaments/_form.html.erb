@@ -1,0 +1,139 @@
+<div class="">
+
+  <%=form_for @tournament, html: {class: ""} do |f| %>
+      <% if @tournament.errors.any? %>
+          <div id="errors_explanation">
+            <h2> <%=pluralize(@tournament.errors.count, "error") %>
+              prohibited this tournament from being saved: </h2>
+
+            <ul>
+              <% @tournament.errors.full_messages.each do |msg| %>
+                  <li> <%=msg %></li>
+              <%end%>
+            </ul>
+          </div>
+      <%end%>
+
+      <fieldset>
+
+        <div class="accountBlocks accountNewUser">
+          <h4 class="blockhdng">Tournament</h4>
+          <div class="inner formee">
+            <div class="clearfix">
+              <div class="reqFieldWrpr">
+                <div class="formee-lbl right">
+                  <em class="formee-req">*</em>
+                  <span class="help">Indicates required field</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix">
+              <div class="one-half">
+                <label>Title<em id="" class="formee-req">*</em></label>
+                <%=f.text_field :title %>
+
+              </div>
+            </div>
+
+            <div class="clearfix">
+              <div class="one-half">
+                <label>Lake<em id="" class="formee-req">*</em></label>
+                <%=f.text_field :lake %>
+
+              </div>
+            </div>
+
+            <div class="clearfix">
+              <div class="one-sixth">
+                <label>Fee<em id="" class="formee-req">*</em></label>
+                <%=f.text_field :fee %>
+
+              </div>
+
+              <div class="one-sixth">
+                <label>Number of boats<em id="" class="formee-req">*</em></label>
+                <%=f.text_field :numBoats %>
+
+              </div>
+
+              <div class="one-sixth">
+                <label>Has Coanglers<em id="" class="formee-req">*</em></label>
+                <%= f.select :hasCoAnglers, options_for_select([["Yes", 1], ["No", 0]], :hasCoAnglers) %>
+
+              </div>
+
+            </div>
+
+            <div class="clearfix">
+              <div class="one-fourth">
+                <label>Contact Phone<em id="" class="formee-req">*</em></label>
+                <%=f.phone_field :contactPhone %>
+              </div>
+            </div>
+
+            <div class="clearfix">
+              <div class="one-fourth">
+                <label>Tournament Date / Time<em id="" class="formee-req">*</em></label>
+                <%=f.text_field :startDate %>
+
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+        </div>
+
+        <div class="accountBlocks accountNewUser">
+          <h4 class="blockhdng">Launch Location</h4>
+          <div class="inner formee">
+            <div class="clearfix">
+              <div class="reqFieldWrpr">
+                <div class="formee-lbl right">
+                  <em class="formee-req">*</em>
+                  <span class="help">Indicates required field</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix">
+              <div class="one-third">
+                <label>Address<em id="" class="formee-req">*</em></label>
+                <%=f.text_field :address %>
+              </div>
+            </div>
+
+
+            <div class="clearfix">
+              <div class="one-sixth">
+                <label>City <em id="" class="formee-req">*</em></label>
+                <%=f.text_field :city %>
+              </div>
+              <div class="one-sixth">
+                <label>State <em id="" class="formee-req">*</em></label>
+                <%= f.collection_select :state, State.all, :state_abbr, :state_name %>
+              </div>
+              <div class="one-sixth">
+                <label>Zip <em id="" class="formee-req">*</em></label>
+                <%=f.text_field :zip %>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+        <div class="clearfix">
+          <div class="actions">
+            <%= f.submit "Save", :class => 'button' %>
+            <%= link_to "Cancel", "/my-account/"%>
+          </div>
+        </div>
+      </fieldset>
+  <%end%>
+
+  </div>

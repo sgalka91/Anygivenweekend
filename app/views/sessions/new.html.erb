@@ -1,0 +1,73 @@
+<div>
+
+  <% if flash[:alert] %>
+      <p id="notice"><%=flash[:alert]%></p>
+  <%end%>
+
+  <%=form_tag do %>
+    <fieldset>
+
+      <div class="accountLogin columnRow sw_stack clearfix">
+        <div class="one-half">
+          <div class="accountBlocks">
+            <h4 class="hdng2 blockhdng">Yes, I have an account</h4>
+            <div class="inner">
+              <div class="formee">
+                <div class="formee-lbl right">
+                  <em class="formee-req">*</em>
+                  Indicates required field
+                </div>
+
+                <div class="clearfix">
+                  <label>Email <em class="formee-req">*</em></label>
+                  <%=text_field_tag :Email, params[:Email] %>
+                </div>
+
+                <div class="clearfix">
+                  <label>Password <em class="formee-req">*</em></label>
+                  <%=password_field_tag :password, params[:Password] %>
+                </div>
+
+                <ul class="formee-list">
+                  <li>
+                    <input id="chkStayLoggedIn" type="checkbox" />
+                    <label>Keep me logged in</label>
+                  </li>
+                </ul>
+              </div>
+
+
+
+              <div class="center">
+                <%=submit_tag "Login", :class => "searchButton", :class => 'button' %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="one-half">
+
+          <div class="accountBlocks">
+            <h4 class="hdng2 blockhdng">No, I do not have an account</h4>
+            <div class="inner">
+              <p>Please take a minute to become a registered Member.&nbsp; As a registered member you will have access to the following functionality:</p>
+              <ul style="font-size: 1em; margin-bottom: 10px;">
+                <li>Create a new Tournament listing</li>
+                <li>Sign up for a Tournament</li>
+                <li>Contact Tournament Owners</li>
+                <li>View Past Tournaments</li>
+              </ul>
+
+              <div class="center">
+                <%=link_to 'Register', register_url, :class =>'button'%>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+
+    </fieldset>
+  <%end%>
+
+</div>

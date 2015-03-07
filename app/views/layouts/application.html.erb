@@ -1,0 +1,105 @@
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Any Given Weekend</title>
+        <%=javascript_include_tag "jquery.min.js" %>
+        <%=javascript_include_tag "jquery.tools.min.js" %>
+      
+
+      <%= favicon_link_tag 'favicon.ico' %>
+
+        <%=stylesheet_link_tag  "style.css"%>
+        <%=stylesheet_link_tag  "formee.css"%>
+        <%=stylesheet_link_tag  "simple_menu.css"%>
+
+        <script>
+        $(function () {
+            $("#prod_nav ul").tabs("#panes > div", {
+                effect: 'fade',
+                fadeOutSpeed: 400
+            });
+        });
+        </script>
+        <script>
+        $(document).ready(function () {
+            $(".pane-list li").click(function () {
+                window.location = $(this).find("a").attr("href");
+                return false;
+            });
+
+        });
+        </script>
+    </head>
+    <body>
+        <div class=header>
+            <div class="logo">
+                <div class="searchBox">
+                  <%if @member && @member.memberId %>
+                      <%= link_to 'My Account(' + @member.FirstName + ')', '/my-account/' %> / <%=link_to 'Logout', logout_path%>
+                  <%else%>
+                      <%= link_to 'Login / Register',  login_url %>
+                  <%end%>
+
+
+                    <input type="text"> </input>
+                    <input class="searchButton" type="submit" Value="Search" class="btn"/>
+                </div>
+
+                <%=image_tag("logo.png")%>
+            </div>
+
+
+
+            <div class="menu">
+                <%=render 'controls/nav'%>
+            </div>
+
+        </div>
+
+        <div id="container">
+          <!-- tab panes -->
+
+            <%=yield%>
+          <div style="clear:both; height: 40px"></div>
+        </div>
+
+
+        <div id="footer">
+          <!-- First Column -->
+          <div class="one-fourth">
+            <h3>Useful Links</h3>
+            <ul class="footer_links">
+              <li><a href="#">Lorem Ipsum</a></li>
+              <li><a href="#">Ellem Ciet</a></li>
+              <li><a href="#">Currivitas</a></li>
+              <li><a href="#">Salim Aritu</a></li>
+            </ul>
+          </div>
+          <!-- Second Column -->
+          <div class="one-fourth">
+            <h3>Terms</h3>
+            <ul class="footer_links">
+              <li><a href="#">Lorem Ipsum</a></li>
+              <li><a href="#">Ellem Ciet</a></li>
+              <li><a href="#">Currivitas</a></li>
+              <li><a href="#">Salim Aritu</a></li>
+            </ul>
+          </div>
+          <!-- Third Column -->
+          <div class="one-fourth">
+            <h3>Information</h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet enim id dui tincidunt vestibulum rhoncus a felis.
+            <div id="social_icons"> Theme by <a href="http://www.csstemplateheaven.com">CssTemplateHeaven</a><br>
+              Photos © <a href="http://dieterschneider.net">Dieter Schneider</a> </div>
+          </div>
+          <!-- Fourth Column -->
+          <div class="one-fourth last">
+            <h3>Socialize</h3>
+            <img src="img/icon_fb.png" alt=""><img src="img/icon_twitter.png" alt=""><img src="img/icon_in.png" alt=""> </div>
+          <div style="clear:both"></div>
+        </div>
+    </body>
+</html>
+
+

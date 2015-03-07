@@ -1,0 +1,31 @@
+<div style="min-height:140px">
+<table>
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Lake</th>
+    <th>Date / Time</th>
+    <th>Number boats</th>
+    <th>Co-anglers</th>
+    <th>Lat of Launch</th>
+    <th>Lng of Launch</th>
+  </tr>
+
+    <%@tournaments.each do |t|%>
+    <tr>
+      <td><%= link_to 'Register', new_member_tournament_path(:tournamentId => t.tournamentId) %></td>
+      <td><%=t.title%></td>
+      <td><%=t.city%></td>
+      <td><%=t.state%></td>
+      <td>Pine & Stone</td>
+      <td>3/5/2015 4:00 am</td>
+      <td><%=t.numBoats%></td>
+      <td><%=t.hasCoAnglers%></td>
+      <td><%=t.Lat%></td>
+      <td><%=t.lng%></td>
+    </tr>
+    <%end%>
+</table>
+</div>

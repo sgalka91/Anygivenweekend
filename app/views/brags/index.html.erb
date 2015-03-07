@@ -1,0 +1,23 @@
+<h1>Bragging Board</h1>
+
+<div class="portfolio-container" id="columns">
+  <ul>
+    <%@brags.each do |b| %>
+        <li class="one-fourth web last">
+          <p> <a href="brags/<%=b.image%>" title="Caption Text" class="portfolio-item-preview" data-rel="prettyPhoto"><img src="brags/<%=b.image%>" alt="" width="210" height="145" class="portfolio-img pretty-box"></a> </p>
+          <h4><a href="#"><%=b.title%></a></h4>
+
+            <ul style="padding-top: 0px;"
+              <li>Lake: Pine & Stone</li>
+              <li>Laportte, IN</li>
+
+            </ul>
+
+        </li>
+    <%end%>
+</ul>
+</div>
+
+<div class="clearfix" style="float:left;margin-top:20px;">
+<%= link_to 'Add Brag', new_brag_url %>
+</div>

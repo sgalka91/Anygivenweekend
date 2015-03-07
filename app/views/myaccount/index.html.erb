@@ -1,0 +1,58 @@
+
+  <div class="two-third">
+    <div class="accountBlocks">
+      <h4 class="blockhdng">Account Details</h4>
+      <div class="inner">
+
+        <dl class="forms">
+
+          <dt>Email:</dt>
+          <dd><%=@member.Email%></dd>
+          <dd class="clear">&nbsp;</dd>
+
+
+          <dt>Member Since:</dt>
+          <dd><%=@member.CreateDate%></dd>
+          <dd class="clear">&nbsp;</dd>
+
+
+        </dl>
+        <div class="clear">&nbsp;</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="columnRow clearfix">
+      <div class="grid_6 alpha">
+        <div class="accountBlocks">
+          <h4 class="blockhdng">Billing Information</h4>
+          <div class="inner">
+            <dl class="forms">
+              <dt>Name:</dt>
+              <dd><%=@member.FirstName + " " + @member.LastName %></dd>
+              <dd class="clear">&nbsp;</dd>
+
+              <dt>Address:</dt>
+              <dd><%=@member.Address1%><br /><%=@member.City + " " + @member.State + " " + @member.Zip%><br /></dd>
+              <dd class="clear">&nbsp;</dd>
+
+
+
+              <dt>Country:</dt>
+              <dd>United States</dd>
+              <dd class="clear">&nbsp;</dd>
+
+              <dt>Phone:</dt>
+              <dd>8014418525</dd>
+              <dd class="clear">&nbsp;</dd>
+            </dl>
+            <div class="clear">&nbsp;</div>
+
+
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
