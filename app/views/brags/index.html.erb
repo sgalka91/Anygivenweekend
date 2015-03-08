@@ -3,14 +3,34 @@
 <div class="portfolio-container" id="columns">
   <ul>
     <%@brags.each do |b| %>
-        <li class="one-fourth web last">
+        <li class="one-fourth web ">
           <p> <a href="brags/<%=b.image%>" title="Caption Text" class="portfolio-item-preview" data-rel="prettyPhoto"><img src="brags/<%=b.image%>" alt="" width="210" height="145" class="portfolio-img pretty-box"></a> </p>
           <h4><a href="#"><%=b.title%></a></h4>
 
             <ul style="padding-top: 0px;">
-              <li>Lake: Pine & Stone</li>
-              <li>Laportte, IN</li>
-              <li>5.5</li>
+              <%if b.lake%>
+                  <li><b>Lake</b>: <%=b.lake%></li>
+              <%end%>
+              <%if b.city%>
+                  <li><b>Location:</b> <%=b.city%>
+                    <%if b.state%>, <%=b.state%>
+                  <%end%>
+                  </li>
+              <%end%>
+              <%if b.weight%>
+                  <li><b>Weight</b>: <%=b.weight%></li>
+              <%end%>
+              <%if b.rig or b.bait%>
+                  <li>
+                    <%if b.rig%>
+                      <b>Rig</b>: <%=b.rig%>
+                  <%end%>
+                  <%if b.bait%>
+                     <b>Bait</b>: <%=b.bait%>
+                  <%end%>
+                  </li>
+              <%end%>
+
 
             </ul>
 

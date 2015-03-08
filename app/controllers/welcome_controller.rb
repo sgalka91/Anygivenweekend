@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
     before_action :get_tournaments
     
     def index
-
+      @bragOfMonth = Brag.find_by isBOM: "\x01"
 
     end
     
