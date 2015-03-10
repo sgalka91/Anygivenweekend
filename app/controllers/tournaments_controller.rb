@@ -22,7 +22,19 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new(params[:tournament].permit(:title, :lake, :fee, :numBoats, :hasCoAnglers, :contactPhone, :startDate, :address, :city, :state, :zip))
     #Get lat lng from GMaps
     if @tournament.save
-      redirect_to(my-account_url, :notice => 'Tournament was successfully created.')
+
+      memberTournamnet = MemberTournament.new
+      memberTournamnet.tournamentId = @tournament.tournamentId
+      memberTournamnet.memberId = @member.memberId
+      memberTournamnet.isOwner = 1
+      memberTournamnet.isApproved = 1
+      memberTournamnet.contactEmail = @member.Email
+      memberTournamnet.contactPhone = @member.Phone
+      memberTournamnet.save
+
+      
+
+      redirect_to('/my-account/', :notice => 'Tournament was successfully created.')
     else
       render :action => 'new'
     end

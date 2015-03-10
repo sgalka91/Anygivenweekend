@@ -3,7 +3,16 @@ class SessionsController < ApplicationController
   def create
     if member = Member.authenticate(params[:Email], params[:password])
       session[:currentMemberId] = member.memberId
-      redirect_to '/my-account/'
+
+      redir = login_url
+
+      if session[:redir]
+        redir = session[:redir]
+        session[:redir] = nil
+      end
+
+        redirect_to redir
+
     else
       redirect_to login_url, :alert => 'Invalid email/password combination'
     end
@@ -13,6 +22,8 @@ class SessionsController < ApplicationController
     if @member
       redirect_to '/my-account'
     end
+
+    session[:redir] = params[:redir]
 
   end
 

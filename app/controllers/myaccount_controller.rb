@@ -7,4 +7,12 @@ class MyaccountController < ApplicationController
     end
   end
 
+
+  def brags
+      @myBrags = Brag.where :memberid => session[:currentMemberId]
+  end
+
+  def tournaments
+    @memberTournaments = MemberTournament.where :memberId => session[:currentMemberId]
+  end
 end

@@ -4,12 +4,19 @@ Rails.application.routes.draw do
 
   get 'register' => 'members#new'
   get 'my-account' => 'myaccount#index'
+  get 'my-account/brags' => 'myaccount#brags'
+  get 'my-account/tournaments' => 'myaccount#tournaments'
+
+
+  get 'tournaments/register/:tournamentId' =>'member_tournaments#register', :as => 'tournaments_register' #member_tournaments#register
 
   controller :myaccount do
-    get 'my-account/create-tournament/' => 'tournaments#new', as: 'newTournamentURL'
+    get 'my-account/create-tournament/' => 'tournaments#new', :as => 'newTournamentURL'
   end
 
   get 'tournaments' => 'tournaments#index'
+
+  get 'guides' => 'guides#index'
 
 
   controller :sessions do
@@ -24,8 +31,11 @@ Rails.application.routes.draw do
   resources :member_tournaments
 
 
+
+
   #Brags
-  get 'brags' => 'brag#index', as: 'brags_home_url'
+  get 'brags' => 'brag#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

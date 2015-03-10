@@ -1,0 +1,51 @@
+<div>
+  <h1>Created tournaments</h1>
+  <table style="width:auto;">
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Lake</th>
+      <th>Date</th>
+      <th>Fee</th>
+
+    </tr>
+    <%@memberTournaments.where(:isOwner => 1).each do |mt| %>
+        <%t = Tournament.find(mt.tournamentId)%>
+        <tr>
+          <td><%=link_to 'manage'%></td>
+          <td><%=t.title%></td>
+          <td><%=t.lake%></td>
+          <td><%=t.startDate%></td>
+          <td><%=t.fee%></td>
+        </tr>
+    <%end%>
+  </table>
+</div>
+
+<div class="one-fifth" style="height:100px;"></div>
+<div>
+  <%if @memberTournaments.where(:isOwner => 0).any? %>
+  <h1>Registered For</h1>
+  <table style="width:auto;">
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Lake</th>
+      <th>Date</th>
+      <th>Fee</th>
+
+    </tr>
+    <%@memberTournaments.where(:isOwner => 0).each do |mt| %>
+        <%t = Tournament.find(mt.tournamentId)%>
+        <tr>
+          <td><%=link_to 'unregister'%> | <%=link_to 'View Attendies' %></td>
+          <td><%=t.title%></td>
+          <td><%=t.lake%></td>
+          <td><%=t.startDate%></td>
+          <td><%=t.fee%></td>
+        </tr>
+    <%end%>
+  </table>
+</div>
+
+<%end%>

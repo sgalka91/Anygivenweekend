@@ -1,6 +1,6 @@
 class MemberTournamentsController < ApplicationController
 
-def new
+def register
   @member_tournament  = MemberTournament.new
   @tournament = Tournament.find(params[:tournamentId])
 end

@@ -1,0 +1,28 @@
+<div style="float:right;">
+  <h1>My Brags</h1>
+<table style="width:auto;">
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th>Lake</th>
+    <th>Location</th>
+    <th>Weight</th>
+    <th>rig</th>
+    <th>Bait</th>
+  </tr>
+  <%@myBrags.each do |b| %>
+  <tr>
+    <td><%=link_to 'edit'%></td>
+    <td><%=b.title%></td>
+    <td><%=b.lake%></td>
+    <td><%=b.city + ' ' + b.state%></td>
+    <td><%=b.weight%></td>
+    <td><%=b.rig%></td>
+    <td><%=b.bait%></td>
+  </tr>
+  <%end%>
+</table>
+
+  <%= link_to 'Add Brag', new_brag_url %>
+
+</div>

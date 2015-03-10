@@ -22,6 +22,11 @@ class BragsController < ApplicationController
     end
 
   def new
+    if !@member
+      redirect_to login_url(:redir => '/brags/new')
+    end
+
     @brag = Brag.new
   end
+
 end
