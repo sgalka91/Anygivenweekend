@@ -12,7 +12,7 @@
   </tr>
 
     <%@tournaments.each do |t|%>
-      <%if t.member_tournaments.where(:memberId => @member.memberId).count == 0 %>
+      <%if !@member || t.member_tournaments.where(:memberId => @member.memberId).count == 0 %>
     <tr>
       <td><%= link_to 'View / Register', tournaments_register_path(:tournamentId => t.tournamentId) %></td>
       <td><%=t.title%></td>
